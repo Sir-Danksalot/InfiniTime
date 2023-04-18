@@ -44,11 +44,17 @@ WatchFaceRedminal::WatchFaceRedminal(Controllers::DateTime& dateTimeController,
 
   label_prompt_1 = lv_label_create(lv_scr_act(), nullptr);
   lv_obj_align(label_prompt_1, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 0, -80);
-  lv_label_set_text_static(label_prompt_1, "user@watch:~ $ now");
+  lv_label_set_text_static(label_prompt_1, "bard@watch:~ $ now");
 
   label_prompt_2 = lv_label_create(lv_scr_act(), nullptr);
   lv_obj_align(label_prompt_2, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 0, 60);
-  lv_label_set_text_static(label_prompt_2, "user@watch:~ $");
+  lv_label_set_text_static(label_prompt_2, "bard@watch:~ $ quote");
+
+  label_prompt_quote = lv_label_create(lv_scr_act(), nullptr);
+  lv_obj_align(label_prompt_quote, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 0, 80);
+  lv_label_set_long_mode(label_prompt_quote, LV_LABEL_LONG_SROLL_CIRC);
+  lv_obj_set_width(label_prompt_quote,240);
+  lv_label_set_text_static(label_prompt_quote, "History will absolve me.");
 
   label_time = lv_label_create(lv_scr_act(), nullptr);
   lv_label_set_recolor(label_time, true);
@@ -98,7 +104,7 @@ void WatchFaceRedminal::Refresh() {
   notificationState = notificationManager.AreNewNotificationsAvailable();
   if (notificationState.IsUpdated()) {
     if (notificationState.Get()) {
-      lv_label_set_text_static(notificationIcon, "You have mail.");
+      lv_label_set_text_static(notificationIcon, "Laal salaam.");
     } else {
       lv_label_set_text_static(notificationIcon, "");
     }
